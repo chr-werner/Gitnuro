@@ -1,0 +1,31 @@
+{
+  "name": "Multi-Language Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--init",
+    "-e", "DISPLAY",
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix"
+  ],
+  "customizations": {
+    "jetbrains": {
+      "backend": "IntelliJ-Community",
+      "plugins": [
+        "org.rust.lang",
+        "com.perl5",
+        "org.jetbrains.compose.desktop.ide"
+      ],
+      "properties": {
+        "idea.auto.reload.context": "true",
+        "idea.case.sensitive.fs": "true"
+      },
+      "vmOptions": {
+        "Xmx": "2048m",
+        "Xms": "512m"
+      }
+    }
+  },
+  "remoteUser": "dev",
+  "workspaceFolder": "/workspace"
+}
